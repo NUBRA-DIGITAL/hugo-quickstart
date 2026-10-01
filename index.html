@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05050a" />
+  <meta name="description" content="NØVA | NUBRA Virtual DJ · Programa piloto SHOW AUDIO VISUAL" />
+  <title>NØVA · SHOW AUDIO VISUAL PILOT</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="orb" aria-hidden="true"><span>N</span></div>
+      <div><div class="eyebrow">NUBRA · SHOW AUDIO VISUAL</div><h1>NØVA <small>Virtual DJ</small></h1></div>
+    </div>
+    <div class="status-strip"><span id="systemDot" class="dot"></span><span id="systemStatus">PILOTO LISTO</span><span class="sep">•</span><span id="clock">--:--:--</span></div>
+  </header>
+  <main class="app-shell">
+    <section class="hero-grid">
+      <article class="panel stage-panel">
+        <div class="panel-head"><div><div class="eyebrow">STAGE PREVIEW</div><h2>Escenario virtual</h2></div><div class="chip-row"><button id="fullscreenBtn" class="chip">⛶ FULLSCREEN</button><button id="wakeBtn" class="chip">☀ PANTALLA ACTIVA</button></div></div>
+        <div id="stage" class="stage scene-cyber">
+          <div class="grid-floor"></div><div class="beam beam-a"></div><div class="beam beam-b"></div><div class="beam beam-c"></div><div id="laser" class="laser"></div><div id="fog" class="fog"></div>
+          <div class="nova-core"><div class="nova-ring ring1"></div><div class="nova-ring ring2"></div><div class="nova-symbol">N</div><div class="nova-label">NØVA</div></div>
+          <div id="strobeLayer" class="strobe-layer"></div>
+          <div class="fixture-row"><span class="fixture" data-fixture="MH1"></span><span class="fixture" data-fixture="PAR1"></span><span class="fixture" data-fixture="BAR1"></span><span class="fixture" data-fixture="PAR2"></span><span class="fixture" data-fixture="MH2"></span></div>
+          <div class="stage-hud"><span>SCENE <b id="sceneLabel">CYBER</b></span><span>BPM <b id="bpmLabel">128</b></span><span>LEVEL <b id="levelLabel">0%</b></span></div>
+        </div>
+      </article>
+      <article class="panel control-panel">
+        <div class="panel-head"><div><div class="eyebrow">MASTER CONTROL</div><h2>Operación</h2></div><span id="modeBadge" class="mode-badge demo">DEMO</span></div>
+        <div class="primary-actions"><button id="startBtn" class="action action-primary">▶ INICIAR SHOW</button><button id="blackoutBtn" class="action action-danger">BLACKOUT</button></div>
+        <div class="switch-grid">
+          <label class="switch-card"><span><b>AUDIO REACTIVE</b><small>Micrófono / entrada</small></span><input id="audioReactive" type="checkbox" /><i></i></label>
+          <label class="switch-card"><span><b>PULSE</b><small>Destello al golpe</small></span><input id="pulseToggle" type="checkbox" checked /><i></i></label>
+          <label class="switch-card"><span><b>LASER</b><small>Haz virtual</small></span><input id="laserToggle" type="checkbox" checked /><i></i></label>
+          <label class="switch-card"><span><b>FOG</b><small>Atmósfera virtual</small></span><input id="fogToggle" type="checkbox" checked /><i></i></label>
+        </div>
+        <div class="meter-block"><div class="meter-head"><span>NIVEL DE AUDIO</span><b id="audioValue">0%</b></div><div class="meter"><span id="audioMeter"></span></div></div>
+        <div class="slider-grid"><label>MASTER <output id="masterOut">82%</output><input id="master" type="range" min="0" max="100" value="82" /></label><label>SENSIBILIDAD <output id="sensitivityOut">72%</output><input id="sensitivity" type="range" min="10" max="100" value="72" /></label><label>STROBE <output id="strobeOut">18%</output><input id="strobe" type="range" min="0" max="100" value="18" /></label></div>
+      </article>
+    </section>
+    <section class="dashboard-grid">
+      <article class="panel scenes-panel"><div class="panel-head"><div><div class="eyebrow">SCENES</div><h2>Escenas</h2></div></div><div class="scene-grid"><button class="scene active" data-scene="cyber"><b>01</b><span>CYBER</span></button><button class="scene" data-scene="club"><b>02</b><span>CLUB</span></button><button class="scene" data-scene="cinema"><b>03</b><span>CINEMA</span></button><button class="scene" data-scene="prisma"><b>04</b><span>PRISMA</span></button><button class="scene" data-scene="energy"><b>05</b><span>ENERGY</span></button><button class="scene" data-scene="ambient"><b>06</b><span>AMBIENT</span></button></div></article>
+      <article class="panel tempo-panel"><div class="panel-head"><div><div class="eyebrow">BEAT ENGINE</div><h2>Tempo</h2></div></div><div class="tempo-display"><b id="tempoDisplay">128</b><span>BPM</span></div><div class="tempo-actions"><button id="tapBtn" class="action">TAP BPM</button><button id="autoBpmBtn" class="action">AUTO</button></div><input id="bpmSlider" type="range" min="60" max="180" value="128" /></article>
+      <article class="panel outputs-panel"><div class="panel-head"><div><div class="eyebrow">OUTPUTS</div><h2>Universos / salidas</h2></div><button id="scanBtn" class="chip">↻ DETECTAR</button></div><div class="output-list"><div class="output online"><span class="output-led"></span><div><b>P1 · DMX VIRTUAL</b><small>Universe 1 · 512 ch</small></div><strong>ONLINE</strong></div><div class="output online"><span class="output-led"></span><div><b>VISUAL ENGINE</b><small>Canvas / WebGL-ready</small></div><strong>ONLINE</strong></div><div id="midiOutput" class="output"><span class="output-led"></span><div><b>MIDI</b><small>Web MIDI compatible</small></div><strong>NO DETECTADO</strong></div><div class="output"><span class="output-led"></span><div><b>ART-NET / sACN</b><small>Requiere gateway NUBRA</small></div><strong>SIMULADO</strong></div></div></article>
+      <article class="panel p1-panel"><div class="panel-head"><div><div class="eyebrow">P1 LIVE CONTROL</div><h2>Fixture manual</h2></div><span id="p1State" class="mode-badge live">READY</span></div><div class="p1-grid"><label>DIMMER <output id="p1DimmerOut">180</output><input id="p1Dimmer" type="range" min="0" max="255" value="180" /></label><label>PAN <output id="p1PanOut">128</output><input id="p1Pan" type="range" min="0" max="255" value="128" /></label><label>TILT <output id="p1TiltOut">128</output><input id="p1Tilt" type="range" min="0" max="255" value="128" /></label><label>COLOR <output id="p1ColorOut">160</output><input id="p1Color" type="range" min="0" max="255" value="160" /></label></div><div class="p1-actions"><button id="p1Pulse" class="action">⚡ BOMBO FUERTE</button><button id="p1Reset" class="action">RESET P1</button></div></article>
+      <article class="panel devices-panel"><div class="panel-head"><div><div class="eyebrow">UNIVERSAL DEVICE LAYER</div><h2>Equipo detectado</h2></div></div><div id="deviceInfo" class="device-info"></div><div class="capabilities" id="capabilities"></div></article>
+      <article class="panel log-panel"><div class="panel-head"><div><div class="eyebrow">SYSTEM LOG</div><h2>Diagnóstico</h2></div><button id="clearLog" class="chip">LIMPIAR</button></div><div id="log" class="log"></div></article>
+    </section>
+  </main>
+  <footer><span>NØVA | NUBRA Virtual DJ · PILOT v0.9</span><span>Modo seguro: las salidas físicas DMX/Art-Net están simuladas hasta conectar gateway autorizado.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
