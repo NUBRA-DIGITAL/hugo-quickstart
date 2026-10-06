@@ -1,8 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 
-const b64 = [0, 1, 2, 3]
-  .map(i => readFileSync(new URL(`./chunk${i}.txt`, import.meta.url), 'utf8').trim())
+const parts = ['chunk0.txt', 'chunk1.txt', 'p4.txt', 'p5.txt', 'chunk3.txt'];
+const b64 = parts
+  .map(name => readFileSync(new URL(`./${name}`, import.meta.url), 'utf8').trim())
   .join('');
 
 const html = gunzipSync(Buffer.from(b64, 'base64')).toString('utf8');
