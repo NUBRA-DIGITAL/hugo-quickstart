@@ -1,0 +1,9 @@
+{
+  "name": "alvear-zona-cero-mobile",
+  "private": true,
+  "version": "0.5.0",
+  "type": "module",
+  "scripts": {
+    "start": "bun server.mjs"
+  }
+}
